@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "ES2017", // 사용할 ECMAScript 버전 설정
+        "lib": ["es2020", "dom"],
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": true,
+        "strict": true
+    },
+    "include": [
+        "src/" // 여기안에 있는놈 모조리 index.js로 넣자
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

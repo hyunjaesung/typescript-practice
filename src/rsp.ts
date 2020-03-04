@@ -1,15 +1,16 @@
-var imgCoords = '0';
-var rsp = {
+"use strict";
+let imgCoords = '0';
+const rsp = {
     ROCK: '0',
     SCISSORS: '-142px',
     PAPER: '-284px'
 }; // as const도 설명
 function computerChoice(imgCoords) {
-    return Object.keys(rsp).find(function (k) {
+    return Object.keys(rsp).find((k) => {
         return rsp[k] === imgCoords;
     });
 }
-var interval;
+let interval;
 function intervalMaker() {
     interval = setInterval(function () {
         if (imgCoords === rsp.ROCK) {
@@ -27,21 +28,21 @@ function intervalMaker() {
     }, 100);
 }
 intervalMaker();
-var score = {
+const score = {
     SCISSORS: 1,
     ROCK: 0,
-    PAPER: -1
+    PAPER: -1,
 };
-document.querySelectorAll('.btn').forEach(function (btn) {
+document.querySelectorAll('.btn').forEach((btn) => {
     btn.addEventListener('click', function () {
         clearInterval(interval); // setInterval 중지
-        setTimeout(function () {
+        setTimeout(() => {
             intervalMaker();
         }, 1000);
-        var myChoice = this.id;
-        var myScore = score[myChoice];
-        var computerScore = score[computerChoice(imgCoords)];
-        var diff = myScore - computerScore;
+        const myChoice = this.id;
+        const myScore = score[myChoice];
+        const computerScore = score[computerChoice(imgCoords)];
+        const diff = myScore - computerScore;
         if (diff === 0) {
             console.log('비겼습니다');
         }
@@ -58,8 +59,8 @@ document.querySelectorAll('.btn').forEach(function (btn) {
 //        SCISSORS   1 1    1 0   1 -1
 //        ROCK   0 1    0 0   0 -1
 //          PAPER  -1 1   -1 0  -1 -1
-var start = 3;
-var interval2 = setInterval(function () {
+let start = 3;
+const interval2 = setInterval(function () {
     if (start === 0) {
         console.log('종료!!!');
         return clearInterval(interval2);
